@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>محصولات | ریوا</title>
+<meta name="description" content="ریوا؛ محصولات پاک‌کننده بهداشتی: پد ظرفشویی، دستمال، لیف و محصولات اقتصادی">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header"><div class="container">
+ <a class="logo" href="index.html">ریوا</a>
+ <button class="menu-btn" aria-label="منو" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
+ <nav class="nav">
+  <a href="index.html" >صفحه اصلی</a>
+  <a href="products.html" aria-current="page">محصولات</a>
+  <a href="#">کاتالوگ</a><a href="#">مراکز پخش</a><a href="#">مقالات</a><a href="#">جشنواره‌ها</a><a href="#">درباره ما</a>
+ </nav>
+ <div class="tools"><input class="search" type="search" placeholder="جستجو کنید" aria-label="جستجو"><span class="cart" aria-label="سبد خرید">🛒</span></div>
+</div></header>
+<main>
+<div class="banner" role="img" aria-label="محصولات ریوا"></div>
+<div class="banner-text" style="position:absolute;top:78px;height:340px;width:100%;pointer-events:none"><div class="container"><span>محصولات پاک‌کننده بهداشتی</span><b>ریــوا</b></div></div>
+<div class="filters"><div class="container">
+ <select id="f-type" aria-label="نوع محصول"><option value="">نوع محصول</option><option value="loofah">لیف</option><option value="cloth">دستمال</option><option value="pad">پد</option></select>
+ <select id="f-material" aria-label="جنس"><option value="">جنس</option><option value="mesh">توری</option><option value="fiber">الیافی</option><option value="nonwoven">پارچه بی‌بافت</option></select>
+ <select id="f-size" aria-label="سایز"><option value="">سایز</option><option value="s">کوچک</option><option value="m">متوسط</option><option value="l">بزرگ</option></select>
+</div></div>
+<section><div class="container"><div class="grid" id="all"></div></div></section>
+</main>
+<footer class="site-footer"><div class="container">
+ <div><h4>راه‌های ارتباطی با ما</h4><p dir="ltr" style="text-align:right">021-44032290</p><p dir="ltr" style="text-align:right">021-44032290 ext. 100</p><p dir="ltr" style="text-align:right">nikpakhshpargas@eriva.ir</p></div>
+ <div><h4>همراه ما باش</h4><ul dir="ltr" style="text-align:right"><li>Instagram · eriva.ir</li><li>Telegram · @eriva.ir</li><li>LinkedIn · eriva.ir</li></ul></div>
+ <div><h4>دسترسی آسان</h4><ul><li><a href="index.html">صفحه اصلی</a></li><li><a href="products.html">محصولات</a></li><li><a href="#">فروشگاه</a></li><li><a href="#">درباره ما</a></li></ul></div>
+ <div><h4>نماد اعتماد ملی</h4><p style="color:var(--muted);font-size:.8rem">کد نماد خود را اینجا قرار دهید</p></div>
+</div></footer>
+<script src="js/products.js"></script><script>initCatalog()</script></body></html>
