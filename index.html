@@ -1,78 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ریوا | محصولات پاک‌کننده بهداشتی</title>
-<meta name="description" content="ریوا؛ محصولات پاک‌کننده بهداشتی: پد ظرفشویی، دستمال، لیف و محصولات اقتصادی">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ریوا | محصولات پاک‌کننده بهداشتی</title>
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #fff; }
+
+    /* هر صفحه: یک عکس + چند ناحیه‌ی قابل کلیک روی آن */
+    .page { display: none; position: relative; width: 100%; max-width: 1600px; margin: 0 auto; }
+    .page.active { display: block; }
+    .page img { display: block; width: 100%; height: auto; user-select: none; }
+
+    .hotspot { position: absolute; display: block; cursor: pointer; }
+
+    /* حالت اشکال‌یابی: آدرس را با ?debug باز کنید تا ناحیه‌های کلیک دیده شوند */
+    body.debug .hotspot { outline: 2px dashed #e6007e; background: rgba(230, 0, 126, .2); }
+  </style>
 </head>
 <body>
-<header class="site-header"><div class="container">
- <a class="logo" href="index.html">ریوا</a>
- <button class="menu-btn" aria-label="منو" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
- <nav class="nav">
-  <a href="index.html" aria-current="page">صفحه اصلی</a>
-  <a href="products.html" >محصولات</a>
-  <a href="#">کاتالوگ</a><a href="#">مراکز پخش</a><a href="#">مقالات</a><a href="#">جشنواره‌ها</a><a href="#">درباره ما</a>
- </nav>
- <div class="tools"><input class="search" type="search" placeholder="جستجو کنید" aria-label="جستجو"><span class="cart" aria-label="سبد خرید">🛒</span></div>
-</div></header>
-<main>
-<div class="hero">
- <div class="container"><div class="hero-photo" role="img" aria-label="محصولات ریوا"></div></div>
- <div class="hero-copy"><div class="container"><div>
-  <h1>خانه‌ای پاک، با ریوا</h1>
-  <p>محصولات تمیزکاری که کار را آسان‌تر می‌کنند.</p>
-  <a class="btn solid" href="products.html">مشاهده محصولات ←</a>
- </div></div></div>
- <svg class="swoosh" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80 C300 20 800 10 1200 40"/></svg>
-</div>
 
-<section><div class="container">
- <div class="sec-head"><h2>دسته‌بندی محصولات</h2><a href="products.html">مشاهده همه محصولات ›</a></div>
- <div class="cats">
-  <article class="cat"><img src="assets/img/cat-pads.png" alt="پد ظرفشویی"><h3>پد ظرفشویی</h3><p>مناسب برای شستشوی انواع ظروف</p><a class="btn sm" href="products.html?type=pad">مشاهده محصولات ←</a></article>
-  <article class="cat"><img src="assets/img/cat-cloths.png" alt="دستمال"><h3>دستمال</h3><p>فوق‌العاده برای تمامی سطوح</p><a class="btn sm" href="products.html?type=cloth">مشاهده محصولات ←</a></article>
-  <article class="cat"><img src="assets/img/p-mesh-globe.jpg" alt="لیف"><h3>لیف</h3><p>مناسب برای شستشوی صورت و بدن</p><a class="btn sm" href="products.html?type=loofah">مشاهده محصولات ←</a></article>
-  <article class="cat"><img src="assets/img/p-cleaning-cloth.jpg" alt="محصولات اقتصادی"><h3>محصولات اقتصادی</h3><p>خرید به صرفه و انتخابی اقتصادی</p><a class="btn sm" href="products.html">مشاهده محصولات ←</a></article>
- </div>
-</div></section>
+  <div id="app"></div>
 
-<section style="padding-top:0"><div class="container">
- <div class="sec-head"><h2>پرفروش‌ترین‌ها</h2></div>
- <div class="best">
-  <img src="assets/img/p-washcloth-red.jpg" alt="لیف قرمز">
-  <img src="assets/img/p-glove.jpg" alt="لیف دستکشی">
-  <img src="assets/img/p-star-roll.jpg" alt="دستمال پنج ستاره">
-  <img src="assets/img/p-cleaning-cloth.jpg" alt="دستمال نظافت">
- </div>
-</div></section>
+  <script>
+    /* =====================================================================
+       تنظیمات سایت — برای اضافه کردن صفحه‌ی جدید فقط همین قسمت را ویرایش کنید
+       =====================================================================
+       هر صفحه:
+         id       : نام صفحه در آدرس (مثلاً #/products)
+         image    : نام فایل عکس (کنار index.html قرار بگیرد)
+         width    : عرض اصلی عکس (پیکسل)
+         height   : ارتفاع اصلی عکس (پیکسل)
+         hotspots : لیست ناحیه‌های قابل کلیک
+                    [x, y, عرض, ارتفاع, صفحه‌ی مقصد]  ← همه بر اساس پیکسل‌های عکس اصلی
+       برای پیدا کردن مختصات درست، سایت را با ?debug باز کنید.
+    ===================================================================== */
 
-<section style="padding-top:0"><div class="container">
- <div class="sec-head"><h2>جدیدترین محصولات</h2></div>
- <div class="grid" id="latest"></div>
-</div></section>
+    const PAGES = {
+      home: {
+        image: "riva-design.png",
+        width: 1040,
+        height: 2576,
+        hotspots: [
+          // منوی بالا
+          [843, 38, 56, 24, "home"],       // صفحه اصلی
+          [786, 38, 50, 24, "products"],   // محصولات
+          [905, 25, 55, 50, "home"],       // لوگو
 
-<section class="story"><div class="container">
- <div><p>تو این دوره، بیشترمون یذره وسواسی شدیم.</p><p>دلمون می‌خواد وقتی که داریم چیزی رو تمیز می‌کنیم، کوچک‌ترین ردی از کثیفی باقی نمونه.</p><p>«به قول ما پاک پاک بشه»</p><p>شرکت ما، برای برق انداختن وسایل شما، محصول مخصوص تولید می‌کنه.</p></div>
- <img src="assets/img/design-home-reference.png" alt="" style="object-position:70% 36%">
-</div></section>
+          // دسته‌بندی محصولات ← «مشاهده محصولات» (هر چهار کارت)
+          [832, 853, 96, 25, "products"],  // پد ظرفشویی
+          [591, 853, 96, 25, "products"],  // دستمال
+          [350, 853, 96, 25, "products"],  // لیف
+          [111, 853, 96, 25, "products"],  // محصولات اقتصادی
 
-<section class="about"><div class="container">
- <h2>آشنایی با محصولات ما</h2>
- <p>محصولات ریوا طیفی از محصولات تمیزکاری را ارائه می‌دهند که برای سهولت و کارآیی بیشتر وظایف تمیزکاری شما طراحی شده‌اند.</p>
- <p>با گنجاندن محصولات ریوا در روال تمیزکاری خود، می‌توانید با تلاش کمتر و رضایت بیشتر خانه‌ای بی‌نقص داشته باشید.</p>
-</div></section>
+          // مشاهده همه محصولات
+          [50, 630, 122, 22, "products"]
+        ]
+      },
 
-<div class="gift"><div class="container"><img src="assets/img/p-magic-roll.jpg" alt=""><h2>هر هفته یک جعبه پر از<br>محصولات ریوا هدیه بگیرید</h2></div></div>
-</main>
-<footer class="site-footer"><div class="container">
- <div><h4>راه‌های ارتباطی با ما</h4><p dir="ltr" style="text-align:right">021-44032290</p><p dir="ltr" style="text-align:right">021-44032290 ext. 100</p><p dir="ltr" style="text-align:right">nikpakhshpargas@eriva.ir</p></div>
- <div><h4>همراه ما باش</h4><ul dir="ltr" style="text-align:right"><li>Instagram · eriva.ir</li><li>Telegram · @eriva.ir</li><li>LinkedIn · eriva.ir</li></ul></div>
- <div><h4>دسترسی آسان</h4><ul><li><a href="index.html">صفحه اصلی</a></li><li><a href="products.html">محصولات</a></li><li><a href="#">فروشگاه</a></li><li><a href="#">درباره ما</a></li></ul></div>
- <div><h4>نماد اعتماد ملی</h4><p style="color:var(--muted);font-size:.8rem">کد نماد خود را اینجا قرار دهید</p></div>
-</div></footer>
-<script src="js/products.js"></script><script>renderProducts("#latest",{limit:4})</script></body></html>
+      products: {
+        image: "riva-design2.png",
+        width: 1040,
+        height: 2576,
+        hotspots: [
+          // منوی بالا
+          [843, 38, 56, 24, "home"],       // صفحه اصلی
+          [786, 38, 50, 24, "products"],   // محصولات
+          [905, 25, 55, 50, "home"]        // لوگو
+        ]
+      }
+
+      // نمونه برای صفحه‌ی بعدی:
+      // about: {
+      //   image: "riva-design3.png",
+      //   width: 1040,
+      //   height: 2000,
+      //   hotspots: [[843, 38, 56, 24, "home"]]
+      // }
+    };
+
+    const DEFAULT_PAGE = "home";
+
+    /* =====================================================================
+       کد نمایش صفحات (معمولاً نیازی به تغییر ندارد)
+       ===================================================================== */
+
+    const app = document.getElementById("app");
+    if (location.search.includes("debug")) document.body.classList.add("debug");
+
+    // ساخت همه‌ی صفحات
+    Object.entries(PAGES).forEach(([id, p]) => {
+      const section = document.createElement("section");
+      section.className = "page";
+      section.id = "page-" + id;
+
+      const img = document.createElement("img");
+      img.src = p.image;
+      img.alt = id;
+      img.draggable = false;
+      section.appendChild(img);
+
+      p.hotspots.forEach(([x, y, w, h, target]) => {
+        const a = document.createElement("a");
+        a.className = "hotspot";
+        a.href = "#/" + target;
+        a.style.left   = (x / p.width  * 100) + "%";
+        a.style.top    = (y / p.height * 100) + "%";
+        a.style.width  = (w / p.width  * 100) + "%";
+        a.style.height = (h / p.height * 100) + "%";
+        section.appendChild(a);
+      });
+
+      app.appendChild(section);
+    });
+
+    // نمایش صفحه‌ی درست بر اساس آدرس
+    function route() {
+      let id = location.hash.replace(/^#\/?/, "") || DEFAULT_PAGE;
+      if (!PAGES[id]) id = DEFAULT_PAGE;
+
+      document.querySelectorAll(".page").forEach(el => el.classList.remove("active"));
+      document.getElementById("page-" + id).classList.add("active");
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("hashchange", route);
+    route();
+  </script>
+</body>
+</html>
