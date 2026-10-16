@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>کاتالوگ محصولات ریوا</title>
+<meta name="description" content="ریوا؛ محصولات پاک‌کننده بهداشتی: پد ظرفشویی، دستمال، لیف و محصولات اقتصادی">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/features.css">
+</head>
+<body>
+<header class="site-header"><div class="container">
+ <a class="logo" href="index.html">ریوا</a>
+ <button class="menu-btn" aria-label="منو" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
+ <nav class="nav">
+  <a href="index.html" >صفحه اصلی</a>
+  <a href="products.html">محصولات</a>
+  <a href="catalogue.html" aria-current="page">کاتالوگ</a><a href="#">مراکز پخش</a><a href="#">مقالات</a><a href="#">جشنواره‌ها</a><a href="#">درباره ما</a>
+ </nav>
+ <div class="tools"><input class="search" type="search" placeholder="جستجو کنید" aria-label="جستجو"><span class="cart" aria-label="سبد خرید">🛒</span></div>
+</div></header>
+<main>
+<div class="cat-hero"><div class="container"><h1>کاتالوگ محصولات ریوا</h1><p>کاتالوگ را همین‌جا ورق بزنید یا فایل آن را دانلود کنید.</p></div></div>
+<div class="pdf-bar"><div class="container" role="toolbar" aria-label="ابزارهای کاتالوگ">
+ <div class="pdf-group">
+  <button class="btn" type="button" id="pdf-prev">‹ قبلی</button>
+  <label class="pdf-page-ind">صفحه <input id="pdf-page" type="number" min="1" value="1" inputmode="numeric" aria-label="شمارهٔ صفحه"> از <span id="pdf-total">–</span></label>
+  <button class="btn" type="button" id="pdf-next">بعدی ›</button>
+ </div>
+ <div class="pdf-group">
+  <button class="btn ico" type="button" id="pdf-zout" aria-label="کوچک‌نمایی">−</button>
+  <span class="pdf-zoom" id="pdf-zoom" aria-live="polite">۱۰۰٪</span>
+  <button class="btn ico" type="button" id="pdf-zin" aria-label="بزرگ‌نمایی">+</button>
+  <button class="btn" type="button" id="pdf-fit">عرض صفحه</button>
+ </div>
+ <div class="pdf-group">
+  <a class="btn solid" id="pdf-download" href="#">دانلود کاتالوگ</a>
+  <a class="btn" id="pdf-open" href="#" target="_blank" rel="noopener">باز کردن در تب جدید</a>
+ </div>
+</div></div>
+<div class="pdf-stage"><div class="container">
+ <div class="pdf-state" id="pdf-state"></div>
+ <div class="pdf-scroll" id="pdf-scroll"><div class="pdf-pages" id="pdf-pages"></div></div>
+</div></div>
+</main>
+<footer class="site-footer"><div class="container">
+ <div><h4>راه‌های ارتباطی با ما</h4><p dir="ltr" style="text-align:right">021-44032290</p><p dir="ltr" style="text-align:right">021-44032290 ext. 100</p><p dir="ltr" style="text-align:right">nikpakhshpargas@eriva.ir</p></div>
+ <div><h4>همراه ما باش</h4><ul dir="ltr" style="text-align:right"><li>Instagram · eriva.ir</li><li>Telegram · @eriva.ir</li><li>LinkedIn · eriva.ir</li></ul></div>
+ <div><h4>دسترسی آسان</h4><ul><li><a href="index.html">صفحه اصلی</a></li><li><a href="products.html">محصولات</a></li><li><a href="#">فروشگاه</a></li><li><a href="#">درباره ما</a></li></ul></div>
+ <div><h4>نماد اعتماد ملی</h4><p style="color:var(--muted);font-size:.8rem">کد نماد خود را اینجا قرار دهید</p></div>
+</div></footer>
+<script src="assets/vendor/pdfjs/pdf.min.js"></script>
+<script src="js/catalogue-config.js"></script>
+<script src="js/products.js"></script><script src="js/site.js"></script>
+<script src="js/catalogue.js"></script>
+</body></html>
