@@ -105,3 +105,14 @@ section{padding:56px 0}
  .banner{height:240px}.banner-text b{font-size:3rem}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* filter select arrows */
+.filters select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='14' viewBox='0 0 22 14' fill='none' stroke='%23e6007e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3l8 8 8-8'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:left 24px center;
+  background-size:20px 12px;
+  padding:6px 26px 6px 58px;
+  transition:background-color .2s;
+}
+.filters select:hover{background-color:#fff5fa}

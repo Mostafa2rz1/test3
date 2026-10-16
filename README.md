@@ -9,3 +9,5 @@ Publish on GitHub Pages:
 1. Create repo (e.g. `riva` or `USERNAME.github.io`) and upload these files at the repo root.
 2. Settings → Pages → Source: "Deploy from a branch" → main / (root) → Save.
 3. Site URL: https://USERNAME.github.io/ (or /riva/). All paths are relative, so both work.
+
+By Sepideh Talebi
