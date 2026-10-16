@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/features.css">
 </head>
 <body>
 <header class="site-header"><div class="container">
@@ -33,11 +34,11 @@
 
 <section><div class="container">
  <div class="sec-head"><h2>دسته‌بندی محصولات</h2><a href="products.html">مشاهده همه محصولات ›</a></div>
- <div class="cats">
-  <article class="cat"><img src="assets/img/cat-pads.png" alt="پد ظرفشویی"><h3>پد ظرفشویی</h3><p>مناسب برای شستشوی انواع ظروف</p><a class="btn sm" href="products.html?type=pad">مشاهده محصولات ←</a></article>
-  <article class="cat"><img src="assets/img/cat-cloths.png" alt="دستمال"><h3>دستمال</h3><p>فوق‌العاده برای تمامی سطوح</p><a class="btn sm" href="products.html?type=cloth">مشاهده محصولات ←</a></article>
-  <article class="cat"><img src="assets/img/p-mesh-globe.jpg" alt="لیف"><h3>لیف</h3><p>مناسب برای شستشوی صورت و بدن</p><a class="btn sm" href="products.html?type=loofah">مشاهده محصولات ←</a></article>
-  <article class="cat"><img src="assets/img/p-cleaning-cloth.jpg" alt="محصولات اقتصادی"><h3>محصولات اقتصادی</h3><p>خرید به صرفه و انتخابی اقتصادی</p><a class="btn sm" href="products.html">مشاهده محصولات ←</a></article>
+ <div class="cat-tiles" id="cat-tiles">
+  <a class="cat-tile" href="products.html?cat=pad" data-cat="pad"><img src="assets/img/tile-dish-pad.jpg" alt="پد ظرفشویی"></a>
+  <a class="cat-tile" href="products.html?cat=loofah" data-cat="loofah"><img src="assets/img/tile-bath-loofah.jpg" alt="لیف حمام"></a>
+  <a class="cat-tile" href="products.html?cat=cloth" data-cat="cloth"><img src="assets/img/tile-cleaning-cloth.jpg" alt="دستمال تنظیف"></a>
+  <a class="cat-tile" href="products.html?cat=descaler" data-cat="descaler"><img src="assets/img/tile-kettle-descaler.jpg" alt="جرم‌گیر سماور"></a>
  </div>
 </div></section>
 
@@ -75,4 +76,5 @@
  <div><h4>دسترسی آسان</h4><ul><li><a href="index.html">صفحه اصلی</a></li><li><a href="products.html">محصولات</a></li><li><a href="#">فروشگاه</a></li><li><a href="#">درباره ما</a></li></ul></div>
  <div><h4>نماد اعتماد ملی</h4><p style="color:var(--muted);font-size:.8rem">کد نماد خود را اینجا قرار دهید</p></div>
 </div></footer>
-<script src="js/products.js"></script><script>renderProducts("#latest",{limit:4})</script></body></html>
+<script src="js/products.js"></script><script>renderProducts("#latest",{ids:["pad-soft","star-roll","cloth-4pack","loofah-polish"]})</script>
+<script src="js/site.js"></script></body></html>

@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/features.css">
 </head>
 <body>
 <header class="site-header"><div class="container">
@@ -23,12 +24,24 @@
 <main>
 <div class="banner" role="img" aria-label="محصولات ریوا"></div>
 <div class="banner-text" style="position:absolute;top:78px;height:340px;width:100%;pointer-events:none"><div class="container"><span>محصولات پاک‌کننده بهداشتی</span><b>ریــوا</b></div></div>
+<section><div class="container">
+ <div class="sec-head"><h2>دسته‌بندی محصولات</h2></div>
+ <div class="cat-tiles" id="cat-tiles">
+  <a class="cat-tile" href="products.html?cat=pad" data-cat="pad"><img src="assets/img/tile-dish-pad.jpg" alt="پد ظرفشویی"></a>
+  <a class="cat-tile" href="products.html?cat=loofah" data-cat="loofah"><img src="assets/img/tile-bath-loofah.jpg" alt="لیف حمام"></a>
+  <a class="cat-tile" href="products.html?cat=cloth" data-cat="cloth"><img src="assets/img/tile-cleaning-cloth.jpg" alt="دستمال تنظیف"></a>
+  <a class="cat-tile" href="products.html?cat=descaler" data-cat="descaler"><img src="assets/img/tile-kettle-descaler.jpg" alt="جرم‌گیر سماور"></a>
+ </div>
+</div></section>
 <div class="filters"><div class="container">
- <select id="f-type" aria-label="نوع محصول"><option value="">نوع محصول</option><option value="loofah">لیف</option><option value="cloth">دستمال</option><option value="pad">پد</option></select>
+ <select id="f-type" aria-label="نوع محصول"><option value="">نوع محصول</option><option value="pad">پد ظرفشویی</option><option value="loofah">لیف حمام</option><option value="cloth">دستمال تنظیف</option><option value="descaler">جرم‌گیر سماور</option></select>
  <select id="f-material" aria-label="جنس"><option value="">جنس</option><option value="mesh">توری</option><option value="fiber">الیافی</option><option value="nonwoven">پارچه بی‌بافت</option></select>
  <select id="f-size" aria-label="سایز"><option value="">سایز</option><option value="s">کوچک</option><option value="m">متوسط</option><option value="l">بزرگ</option></select>
 </div></div>
-<section><div class="container"><div class="grid" id="all"></div></div></section>
+<section id="products-section"><div class="container">
+ <div class="sec-head"><h2 id="grid-title" tabindex="-1">همه محصولات</h2><a href="products.html" id="clear-filter" hidden>نمایش همه</a></div>
+ <div class="grid" id="all" aria-live="polite"></div>
+</div></section>
 </main>
 <footer class="site-footer"><div class="container">
  <div><h4>راه‌های ارتباطی با ما</h4><p dir="ltr" style="text-align:right">021-44032290</p><p dir="ltr" style="text-align:right">021-44032290 ext. 100</p><p dir="ltr" style="text-align:right">nikpakhshpargas@eriva.ir</p></div>
@@ -36,4 +49,4 @@
  <div><h4>دسترسی آسان</h4><ul><li><a href="index.html">صفحه اصلی</a></li><li><a href="products.html">محصولات</a></li><li><a href="#">فروشگاه</a></li><li><a href="#">درباره ما</a></li></ul></div>
  <div><h4>نماد اعتماد ملی</h4><p style="color:var(--muted);font-size:.8rem">کد نماد خود را اینجا قرار دهید</p></div>
 </div></footer>
-<script src="js/products.js"></script><script>initCatalog()</script></body></html>
+<script src="js/products.js"></script><script src="js/site.js"></script><script>initCatalog()</script></body></html>
